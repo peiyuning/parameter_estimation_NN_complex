@@ -1,0 +1,29 @@
+{
+  "model": "tls",
+  "device": "cuda",
+  "n_trajectories": 1000000,
+  "trajectory_length": 50,
+  "n_param_points": 2048,
+  "delta_range": [
+    0.0,
+    3.0
+  ],
+  "omega_range": [
+    0.25,
+    5.0
+  ],
+  "seed": 42,
+  "grid_size": 4096,
+  "tau_max_init": 40.0,
+  "tau_max_limit": 1024.0,
+  "tail_tol": 0.0001,
+  "min_captured_area": 0.995,
+  "max_redraw_attempts": 256,
+  "mean_area_before_renorm": 0.9999944929268165,
+  "min_area_before_renorm": 0.9999000830096252,
+  "max_area_before_renorm": 0.9999999979909538,
+  "mean_tau_max": 66.85546875,
+  "max_tau_max": 1280.0,
+  "mean_redraw_attempts": 1.0,
+  "max_redraw_attempts_used": 1
+}

@@ -1,0 +1,31 @@
+{
+  "model": "v",
+  "device": "cpu",
+  "requested_device": "cpu",
+  "sampling_mode": "noniid",
+  "n_trajectories": 1000000,
+  "trajectory_length": 50,
+  "n_param_points": 2048,
+  "delta_range": [
+    0.0,
+    3.0
+  ],
+  "omega_range": [
+    0.25,
+    5.0
+  ],
+  "seed": 3042,
+  "grid_size": 4096,
+  "tau_max_init": 40.0,
+  "tau_max_limit": 1024.0,
+  "tail_tol": 0.0001,
+  "min_captured_area": 0.995,
+  "max_redraw_attempts": 256,
+  "mean_area_before_renorm": 0.9999951168175597,
+  "min_area_before_renorm": 0.9999020619126797,
+  "max_area_before_renorm": 1.0000782742888465,
+  "mean_tau_max": 56.30859375,
+  "max_tau_max": 320.0,
+  "mean_redraw_attempts": 1.0,
+  "max_redraw_attempts_used": 1
+}
