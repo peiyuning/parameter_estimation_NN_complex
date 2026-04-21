@@ -1,0 +1,239 @@
+[NbConvertApp] Converting notebook /home/t30/rab/ge48zus/paramest-nn/ParamEst-NN-main/notebooks/3-result.ipynb to notebook
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/__main__.py", line 5, in <module>
+    main()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/traitlets/config/application.py", line 1075, in launch_instance
+    app.start()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+scan_rows = scan_over_lengths_and_points(
+    model=model,
+    theta_points=theta_grid,
+    L_list=L_grid,
+    tau_grid=tau_grid,
+    w_func=w_func,
+    laplace_w=laplace_w,
+    H_test=H_test,
+    device=device,
+)
+
+scan_df = scan_rows_to_frame(scan_rows)
+print("n_rows =", len(scan_rows))
+display(scan_df.head())
+
+------------------
+
+----- stdout -----
+Starting L = 10 with 121 theta points ...
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mRuntimeError[39m                              Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m scan_rows = [43mscan_over_lengths_and_points[49m[43m([49m
+[32m      2[39m [43m    [49m[43mmodel[49m[43m=[49m[43mmodel[49m[43m,[49m
+[32m      3[39m [43m    [49m[43mtheta_points[49m[43m=[49m[43mtheta_grid[49m[43m,[49m
+[32m      4[39m [43m    [49m[43mL_list[49m[43m=[49m[43mL_grid[49m[43m,[49m
+[32m      5[39m [43m    [49m[43mtau_grid[49m[43m=[49m[43mtau_grid[49m[43m,[49m
+[32m      6[39m [43m    [49m[43mw_func[49m[43m=[49m[43mw_func[49m[43m,[49m
+[32m      7[39m [43m    [49m[43mlaplace_w[49m[43m=[49m[43mlaplace_w[49m[43m,[49m
+[32m      8[39m [43m    [49m[43mH_test[49m[43m=[49m[43mH_test[49m[43m,[49m
+[32m      9[39m [43m    [49m[43mdevice[49m[43m=[49m[43mdevice[49m[43m,[49m
+[32m     10[39m [43m)[49m
+[32m     12[39m scan_df = scan_rows_to_frame(scan_rows)
+[32m     13[39m [38;5;28mprint[39m([33m"[39m[33mn_rows =[39m[33m"[39m, [38;5;28mlen[39m(scan_rows))
+
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 74[39m, in [36mscan_over_lengths_and_points[39m[34m(model, theta_points, L_list, tau_grid, w_func, laplace_w, H_test, device)[39m
+[32m     71[39m rows = []
+[32m     72[39m [38;5;28;01mfor[39;00m theta [38;5;129;01min[39;00m theta_points:
+[32m     73[39m     rows.append(
+[32m---> [39m[32m74[39m         [43m_compute_scan_row[49m[43m([49m
+[32m     75[39m [43m            [49m[43mmodel[49m[43m=[49m[43mmodel[49m[43m,[49m
+[32m     76[39m [43m            [49m[43mtheta[49m[43m=[49m[43mtheta[49m[43m,[49m
+[32m     77[39m [43m            [49m[43mL[49m[43m=[49m[43mL[49m[43m,[49m
+[32m     78[39m [43m            [49m[43mtau_grid[49m[43m=[49m[43mtau_grid[49m[43m,[49m
+[32m     79[39m [43m            [49m[43mw_func[49m[43m=[49m[43mw_func[49m[43m,[49m
+[32m     80[39m [43m            [49m[43mlaplace_w[49m[43m=[49m[43mlaplace_w[49m[43m,[49m
+[32m     81[39m [43m            [49m[43mH_test[49m[43m=[49m[43mH_test[49m[43m,[49m
+[32m     82[39m [43m            [49m[43mdevice[49m[43m=[49m[43mdevice[49m[43m,[49m
+[32m     83[39m [43m        [49m[43m)[49m
+[32m     84[39m     )
+[32m     85[39m rows.sort(key=[38;5;28;01mlambda[39;00m row: (row[[33m"[39m[33mdelta[39m[33m"[39m], row[[33m"[39m[33momega[39m[33m"[39m]))
+[32m     86[39m all_rows.extend(rows)
+
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 25[39m, in [36m_compute_scan_row[39m[34m(model, theta, L, tau_grid, w_func, laplace_w, H_test, device)[39m
+[32m      7[39m exact_report = linear_laplace_estimator_report(
+[32m      8[39m     model=model,
+[32m      9[39m     theta=theta_t,
+[32m   (...)[39m[32m     13[39m     laplace_w=laplace_w,
+[32m     14[39m )
+[32m     16[39m eta_func = [38;5;28;01mlambda[39;00m th: estimator_mean_linear_laplace(
+[32m     17[39m     model=model,
+[32m     18[39m     theta=th,
+[32m   (...)[39m[32m     22[39m     laplace_w=laplace_w,
+[32m     23[39m )
+[32m---> [39m[32m25[39m bar_report = [43mgeneralized_barankin_bound[49m[43m([49m
+[32m     26[39m [43m    [49m[43mtheta[49m[43m=[49m[43mtheta_t[49m[43m,[49m
+[32m     27[39m [43m    [49m[43mH[49m[43m=[49m[43mH_test[49m[43m,[49m
+[32m     28[39m [43m    [49m[43mN_obs[49m[43m=[49m[43mL[49m[43m,[49m
+[32m     29[39m [43m    [49m[43mtau_grid[49m[43m=[49m[43mtau_grid[49m[43m,[49m
+[32m     30[39m [43m    [49m[43mw_func[49m[43m=[49m[43mw_func[49m[43m,[49m
+[32m     31[39m [43m    [49m[43meta_func[49m[43m=[49m[43meta_func[49m[43m,[49m
+[32m     32[39m [43m[49m[43m)[49m
+[32m     34[39m exact_mse_diag = torch.diag(exact_report[[33m"[39m[33mMSE_exact[39m[33m"[39m])
+[32m     35[39m bcrb_mse_diag = torch.diag(exact_report[[33m"[39m[33mMSE_bCRB[39m[33m"[39m])
+
+[36mFile [39m[32m/tmp/ipykernel_2697920/1975595058.py:63[39m, in [36mgeneralized_barankin_bound[39m[34m(theta, H, N_obs, tau_grid, w_func, eta_func, eps_w, renorm)[39m
+[32m     61[39m eta0 = as_real_tensor(eta_func(theta), device=theta.device)
+[32m     62[39m [38;5;28;01mif[39;00m HAS_TORCH_FUNC:
+[32m---> [39m[32m63[39m     R = [43mvmap[49m[43m([49m[38;5;28;43;01mlambda[39;49;00m[43m [49m[43mh[49m[43m:[49m[43m [49m[43mas_real_tensor[49m[43m([49m[43meta_func[49m[43m([49m[43mtheta[49m[43m [49m[43m+[49m[43m [49m[43mh[49m[43m)[49m[43m,[49m[43m [49m[43mdevice[49m[43m=[49m[43mtheta[49m[43m.[49m[43mdevice[49m[43m)[49m[43m [49m[43m-[49m[43m [49m[43meta0[49m[43m)[49m[43m([49m[43mH[49m[43m)[49m.T
+[32m     64[39m [38;5;28;01melse[39;00m:
+[32m     65[39m     R = torch.stack(
+[32m     66[39m         [as_real_tensor(eta_func(theta + H[m]), device=theta.device) - eta0 [38;5;28;01mfor[39;00m m [38;5;129;01min[39;00m [38;5;28mrange[39m(M)],
+[32m     67[39m         dim=[32m1[39m,
+[32m     68[39m     )
+
+[36mFile [39m[32m/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/torch/_functorch/apis.py:203[39m, in [36mvmap.<locals>.wrapped[39m[34m(*args, **kwargs)[39m
+[32m    202[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mwrapped[39m(*args, **kwargs):
+[32m--> [39m[32m203[39m     [38;5;28;01mreturn[39;00m [43mvmap_impl[49m[43m([49m
+[32m    204[39m [43m        [49m[43mfunc[49m[43m,[49m[43m [49m[43min_dims[49m[43m,[49m[43m [49m[43mout_dims[49m[43m,[49m[43m [49m[43mrandomness[49m[43m,[49m[43m [49m[43mchunk_size[49m[43m,[49m[43m [49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m
+[32m    205[39m [43m    [49m[43m)[49m
+
+[36mFile [39m[32m/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/torch/_functorch/vmap.py:331[39m, in [36mvmap_impl[39m[34m(func, in_dims, out_dims, randomness, chunk_size, *args, **kwargs)[39m
+[32m    320[39m     [38;5;28;01mreturn[39;00m _chunked_vmap(
+[32m    321[39m         func,
+[32m    322[39m         flat_in_dims,
+[32m   (...)[39m[32m    327[39m         **kwargs,
+[32m    328[39m     )
+[32m    330[39m [38;5;66;03m# If chunk_size is not specified.[39;00m
+[32m--> [39m[32m331[39m [38;5;28;01mreturn[39;00m [43m_flat_vmap[49m[43m([49m
+[32m    332[39m [43m    [49m[43mfunc[49m[43m,[49m
+[32m    333[39m [43m    [49m[43mbatch_size[49m[43m,[49m
+[32m    334[39m [43m    [49m[43mflat_in_dims[49m[43m,[49m
+[32m    335[39m [43m    [49m[43mflat_args[49m[43m,[49m
+[32m    336[39m [43m    [49m[43margs_spec[49m[43m,[49m
+[32m    337[39m [43m    [49m[43mout_dims[49m[43m,[49m
+[32m    338[39m [43m    [49m[43mrandomness[49m[43m,[49m
+[32m    339[39m [43m    [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m,[49m
+[32m    340[39m [43m[49m[43m)[49m
+
+[36mFile [39m[32m/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/torch/_functorch/vmap.py:479[39m, in [36m_flat_vmap[39m[34m(func, batch_size, flat_in_dims, flat_args, args_spec, out_dims, randomness, **kwargs)[39m
+[32m    475[39m [38;5;28;01mwith[39;00m vmap_increment_nesting(batch_size, randomness) [38;5;28;01mas[39;00m vmap_level:
+[32m    476[39m     batched_inputs = _create_batched_inputs(
+[32m    477[39m         flat_in_dims, flat_args, vmap_level, args_spec
+[32m    478[39m     )
+[32m--> [39m[32m479[39m     batched_outputs = [43mfunc[49m[43m([49m[43m*[49m[43mbatched_inputs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+[32m    480[39m     [38;5;28;01mreturn[39;00m _unwrap_batched(batched_outputs, out_dims, vmap_level, batch_size, func)
+
+[36mFile [39m[32m/tmp/ipykernel_2697920/1975595058.py:63[39m, in [36mgeneralized_barankin_bound.<locals>.<lambda>[39m[34m(h)[39m
+[32m     61[39m eta0 = as_real_tensor(eta_func(theta), device=theta.device)
+[32m     62[39m [38;5;28;01mif[39;00m HAS_TORCH_FUNC:
+[32m---> [39m[32m63[39m     R = vmap([38;5;28;01mlambda[39;00m h: as_real_tensor([43meta_func[49m[43m([49m[43mtheta[49m[43m [49m[43m+[49m[43m [49m[43mh[49m[43m)[49m, device=theta.device) - eta0)(H).T
+[32m     64[39m [38;5;28;01melse[39;00m:
+[32m     65[39m     R = torch.stack(
+[32m     66[39m         [as_real_tensor(eta_func(theta + H[m]), device=theta.device) - eta0 [38;5;28;01mfor[39;00m m [38;5;129;01min[39;00m [38;5;28mrange[39m(M)],
+[32m     67[39m         dim=[32m1[39m,
+[32m     68[39m     )
+
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 16[39m, in [36m_compute_scan_row.<locals>.<lambda>[39m[34m(th)[39m
+[32m      5[39m theta_t = as_real_tensor(theta, device=device)
+[32m      7[39m exact_report = linear_laplace_estimator_report(
+[32m      8[39m     model=model,
+[32m      9[39m     theta=theta_t,
+[32m   (...)[39m[32m     13[39m     laplace_w=laplace_w,
+[32m     14[39m )
+[32m---> [39m[32m16[39m eta_func = [38;5;28;01mlambda[39;00m th: [43mestimator_mean_linear_laplace[49m[43m([49m
+[32m     17[39m [43m    [49m[43mmodel[49m[43m=[49m[43mmodel[49m[43m,[49m
+[32m     18[39m [43m    [49m[43mtheta[49m[43m=[49m[43mth[49m[43m,[49m
+[32m     19[39m [43m    [49m[43mN_obs[49m[43m=[49m[43mL[49m[43m,[49m
+[32m     20[39m [43m    [49m[43mtau_grid[49m[43m=[49m[43mtau_grid[49m[43m,[49m
+[32m     21[39m [43m    [49m[43mw_func[49m[43m=[49m[43mw_func[49m[43m,[49m
+[32m     22[39m [43m    [49m[43mlaplace_w[49m[43m=[49m[43mlaplace_w[49m[43m,[49m
+[32m     23[39m [43m[49m[43m)[49m
+[32m     25[39m bar_report = generalized_barankin_bound(
+[32m     26[39m     theta=theta_t,
+[32m     27[39m     H=H_test,
+[32m   (...)[39m[32m     31[39m     eta_func=eta_func,
+[32m     32[39m )
+[32m     34[39m exact_mse_diag = torch.diag(exact_report[[33m"[39m[33mMSE_exact[39m[33m"[39m])
+
+[36mFile [39m[32m/tmp/ipykernel_2697920/1975595058.py:17[39m, in [36mestimator_mean_linear_laplace[39m[34m(model, theta, N_obs, tau_grid, w_func, laplace_w, eps_w, renorm)[39m
+[32m     14[39m [38;5;28;01mif[39;00m laplace_w [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m     15[39m     laplace_w = make_numeric_laplace_w(w_func, tau_grid, eps=eps_w, renorm=renorm)
+[32m---> [39m[32m17[39m mx, _ = [43mfeature_mean_cov_from_laplace[49m[43m([49m[43mtheta[49m[43m,[49m[43m [49m[43ms[49m[43m,[49m[43m [49m[43mN_obs[49m[43m,[49m[43m [49m[43mlaplace_w[49m[43m)[49m
+[32m     18[39m [38;5;28;01mreturn[39;00m W @ mx + c
+
+[36mFile [39m[32m/tmp/ipykernel_2697920/2917892557.py:153[39m, in [36mfeature_mean_cov_from_laplace[39m[34m(theta, s, N_obs, laplace_w)[39m
+[32m    151[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mfeature_mean_cov_from_laplace[39m(theta, s, N_obs, laplace_w):
+[32m    152[39m     one_sample = one_sample_real_probe_moments(theta, s, laplace_w)
+[32m--> [39m[32m153[39m     M1, M2, _, _ = [43mfeature_moments_from_probe_moments[49m[43m([49m[43mone_sample[49m[43m,[49m[43m [49m[43mN_obs[49m[43m)[49m
+[32m    154[39m     Sx = M2 - torch.einsum([33m"[39m[33mi,j->ij[39m[33m"[39m, M1, M1)
+[32m    155[39m     Sx = [32m0.5[39m * (Sx + Sx.T)
+
+[36mFile [39m[32m/tmp/ipykernel_2697920/2917892557.py:142[39m, in [36mfeature_moments_from_probe_moments[39m[34m(one_sample_probe_moments, N_obs)[39m
+[32m    140[39m m1, m2, m3, m4 = one_sample_probe_moments
+[32m    141[39m M1_probe, M2_probe, M3_probe, M4_probe = sample_mean_raw_moments_from_single(m1, m2, m3, m4, N_obs)
+[32m--> [39m[32m142[39m [38;5;28;01mreturn[39;00m [43maugment_moments_with_length_feature[49m[43m([49m
+[32m    143[39m [43m    [49m[43mM1_probe[49m[43m,[49m
+[32m    144[39m [43m    [49m[43mM2_probe[49m[43m,[49m
+[32m    145[39m [43m    [49m[43mM3_probe[49m[43m,[49m
+[32m    146[39m [43m    [49m[43mM4_probe[49m[43m,[49m
+[32m    147[39m [43m    [49m[43mlength_feature_value[49m[43m([49m[43mN_obs[49m[43m,[49m[43m [49m[43mdevice[49m[43m=[49m[43mm1[49m[43m.[49m[43mdevice[49m[43m)[49m[43m,[49m
+[32m    148[39m [43m[49m[43m)[49m
+
+[36mFile [39m[32m/tmp/ipykernel_2697920/2917892557.py:100[39m, in [36maugment_moments_with_length_feature[39m[34m(m1, m2, m3, m4, length_value)[39m
+[32m     97[39m c = as_real_tensor(length_value, device=m1.device).reshape(())
+[32m     99[39m M1 = torch.zeros((De,), dtype=THEORY_DTYPE, device=m1.device)
+[32m--> [39m[32m100[39m [43mM1[49m[43m[[49m[43m:[49m[43mD[49m[43m][49m = m1
+[32m    101[39m M1[last] = c
+[32m    103[39m M2 = torch.zeros((De, De), dtype=THEORY_DTYPE, device=m1.device)
+
+[31mRuntimeError[39m: vmap: inplace arithmetic(self, *extra_args) is not possible because there exists a Tensor `other` in extra_args that has more elements than `self`. This happened due to `other` being vmapped over but `self` not being vmapped over in a vmap. Please try to use out-of-place operators instead of inplace arithmetic. If said operator is being called inside the PyTorch framework, please file a bug report instead.
+

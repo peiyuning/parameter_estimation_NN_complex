@@ -1,0 +1,193 @@
+[NbConvertApp] Converting notebook /home/t30/rab/ge48zus/paramest-nn/ParamEst-NN-main/notebooks/train_tls.ipynb to notebook
+/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/__main__.py", line 5, in <module>
+    main()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/traitlets/config/application.py", line 1075, in launch_instance
+    app.start()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+model_name = "tls"
+retrain = True
+load_training_data = True
+
+%run ./2-train.ipynb
+
+------------------
+
+----- stderr -----
+/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+----- stdout -----
+Using device: cuda
+GPU: NVIDIA H100 NVL
+Loaded 1,000,000/1,000,000 trajectories from /home/t30/rab/ge48zus/paramest-nn/ParamEst-NN-main/data/tragectories/tls/trajectories.npy
+----- stderr -----
+/tmp/ipykernel_1386209/2350049005.py:34: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt_for_load = torch.load(model_ckpt_path, map_location="cpu") if model_ckpt_path.exists() else None
+----- stdout -----
+model_name=tls
+train_data: (799813, 50), val_data: (200187, 50)
+split blocks: train=1638, val=410
+split rows: train=799,813, val=200,187
+batch_size=8192, num_epochs=30, train_length_choices=[10, 15, 20, 30, 40, 50]
+alpha_init_range=(0.1, 1.5), beta_init_range=(-5.0, 5.0)
+target_mean = tensor([1.4544, 2.6108])
+target_std  = tensor([0.8586, 1.3727])
+----- stdout -----
+beta_init range = (-5.0, 5.0)
+feature_dim = 7
+retrain = True
+checkpoint = /home/t30/rab/ge48zus/paramest-nn/ParamEst-NN-main/data/models/tls/pole_residue_block_head_tls.pt
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mRuntimeError[39m                              Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 5[39m
+[32m      2[39m retrain = [38;5;28;01mTrue[39;00m
+[32m      3[39m load_training_data = [38;5;28;01mTrue[39;00m
+[32m----> [39m[32m5[39m [43mget_ipython[49m[43m([49m[43m)[49m[43m.[49m[43mrun_line_magic[49m[43m([49m[33;43m'[39;49m[33;43mrun[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[33;43m'[39;49m[33;43m./2-train.ipynb[39;49m[33;43m'[39;49m[43m)[49m
+
+[36mFile [39m[32m/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/IPython/core/interactiveshell.py:2532[39m, in [36mInteractiveShell.run_line_magic[39m[34m(self, magic_name, line, _stack_depth)[39m
+[32m   2530[39m     kwargs[[33m'[39m[33mlocal_ns[39m[33m'[39m] = [38;5;28mself[39m.get_local_scope(stack_depth)
+[32m   2531[39m [38;5;28;01mwith[39;00m [38;5;28mself[39m.builtin_trap:
+[32m-> [39m[32m2532[39m     result = [43mfn[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+[32m   2534[39m [38;5;66;03m# The code below prevents the output from being displayed[39;00m
+[32m   2535[39m [38;5;66;03m# when using magics with decorator @output_can_be_silenced[39;00m
+[32m   2536[39m [38;5;66;03m# when the last Python token in the expression is a ';'.[39;00m
+[32m   2537[39m [38;5;28;01mif[39;00m [38;5;28mgetattr[39m(fn, magic.MAGIC_OUTPUT_CAN_BE_SILENCED, [38;5;28;01mFalse[39;00m):
+
+[36mFile [39m[32m/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/IPython/core/magics/execution.py:750[39m, in [36mExecutionMagics.run[39m[34m(self, parameter_s, runner, file_finder)[39m
+[32m    748[39m     [38;5;28;01mwith[39;00m preserve_keys([38;5;28mself[39m.shell.user_ns, [33m'[39m[33m__file__[39m[33m'[39m):
+[32m    749[39m         [38;5;28mself[39m.shell.user_ns[[33m'[39m[33m__file__[39m[33m'[39m] = filename
+[32m--> [39m[32m750[39m         [38;5;28;43mself[39;49m[43m.[49m[43mshell[49m[43m.[49m[43msafe_execfile_ipy[49m[43m([49m[43mfilename[49m[43m,[49m[43m [49m[43mraise_exceptions[49m[43m=[49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
+[32m    751[39m     [38;5;28;01mreturn[39;00m
+[32m    753[39m [38;5;66;03m# Control the response to exit() calls made by the script being run[39;00m
+
+[36mFile [39m[32m/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/IPython/core/interactiveshell.py:3048[39m, in [36mInteractiveShell.safe_execfile_ipy[39m[34m(self, fname, shell_futures, raise_exceptions)[39m
+[32m   3046[39m result = [38;5;28mself[39m.run_cell(cell, silent=[38;5;28;01mTrue[39;00m, shell_futures=shell_futures)
+[32m   3047[39m [38;5;28;01mif[39;00m raise_exceptions:
+[32m-> [39m[32m3048[39m     [43mresult[49m[43m.[49m[43mraise_error[49m[43m([49m[43m)[49m
+[32m   3049[39m [38;5;28;01melif[39;00m [38;5;129;01mnot[39;00m result.success:
+[32m   3050[39m     [38;5;28;01mbreak[39;00m
+
+[36mFile [39m[32m/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/IPython/core/interactiveshell.py:329[39m, in [36mExecutionResult.raise_error[39m[34m(self)[39m
+[32m    327[39m     [38;5;28;01mraise[39;00m [38;5;28mself[39m.error_before_exec
+[32m    328[39m [38;5;28;01mif[39;00m [38;5;28mself[39m.error_in_exec [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[32m--> [39m[32m329[39m     [38;5;28;01mraise[39;00m [38;5;28mself[39m.error_in_exec
+
+    [31m[... skipping hidden 1 frame][39m
+
+[36mFile [39m[32m/tmp/ipykernel_1386209/3937934940.py:24[39m
+[32m     22[39m         [38;5;28mprint[39m([33mf[39m[33m"[39m[33mCheckpoint not found, training from scratch: [39m[38;5;132;01m{[39;00mmodel_ckpt_path[38;5;132;01m}[39;00m[33m"[39m)
+[32m     23[39m     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
+[32m---> [39m[32m24[39m     history = [43mtrain_model[49m[43m([49m
+[32m     25[39m [43m        [49m[43mmodel[49m[43m,[49m
+[32m     26[39m [43m        [49m[43mtrain_loader[49m[43m,[49m
+[32m     27[39m [43m        [49m[43mval_loader[49m[43m,[49m
+[32m     28[39m [43m        [49m[43moptimizer[49m[43m,[49m
+[32m     29[39m [43m        [49m[43mdevice[49m[43m=[49m[43mdevice[49m[43m,[49m
+[32m     30[39m [43m        [49m[43mepochs[49m[43m=[49m[43mnum_epochs[49m[43m,[49m
+[32m     31[39m [43m        [49m[43mtrain_length_choices[49m[43m=[49m[43mtrain_length_choices[49m[43m,[49m
+[32m     32[39m [43m    [49m[43m)[49m
+[32m     33[39m     did_train = [38;5;28;01mTrue[39;00m
+[32m     34[39m [38;5;28;01melse[39;00m:
+
+[36mFile [39m[32m/tmp/ipykernel_1386209/2018027278.py:141[39m, in [36mtrain_model[39m[34m(model, train_loader, val_loader, optimizer, device, epochs, train_length_choices)[39m
+[32m    138[39m chosen_lengths.append(chosen_length)
+[32m    140[39m optimizer.zero_grad(set_to_none=[38;5;28;01mTrue[39;00m)
+[32m--> [39m[32m141[39m pred_std = [43mmodel[49m[43m.[49m[43mforward_standardized[49m[43m([49m[43mtaus[49m[43m,[49m[43m [49m[43mmask[49m[43m)[49m
+[32m    142[39m pred = model.decode_targets(pred_std)
+[32m    143[39m data_loss = mse_loss(model, pred_std, y)
+
+[36mFile [39m[32m/tmp/ipykernel_1386209/2006410547.py:128[39m, in [36mLaplaceLinearEstimator.forward_standardized[39m[34m(self, taus, mask)[39m
+[32m    126[39m x = [38;5;28mself[39m.feat(taus, mask)
+[32m    127[39m omega_std = [38;5;28mself[39m.omegastd(x)
+[32m--> [39m[32m128[39m delta_std = [38;5;28;43mself[39;49m[43m.[49m[43mdeltastd[49m[43m([49m[43mx[49m[43m,[49m[43m [49m[43momega_std[49m[43m)[49m
+[32m    129[39m [38;5;28;01mreturn[39;00m torch.stack([delta_std, omega_std], dim=[32m1[39m)
+
+[36mFile [39m[32m/tmp/ipykernel_1386209/2006410547.py:89[39m, in [36mLaplaceLinearEstimator.deltastd[39m[34m(self, x, omega_std)[39m
+[32m     87[39m [38;5;28;01mfor[39;00m _ [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;28mself[39m.delta_steps):
+[32m     88[39m     theta_ref = torch.stack([delta, omega], dim=[32m1[39m)
+[32m---> [39m[32m89[39m     dirs = [38;5;28;43mself[39;49m[43m.[49m[43mdeltadirs[49m[43m([49m[43mtheta_ref[49m[43m)[49m
+[32m     90[39m     delta_std = torch.sum(xre * ([38;5;28mself[39m.delta_coeff.unsqueeze([32m0[39m) * dirs[:, :, [32m0[39m]), dim=[32m1[39m)
+[32m     91[39m     delta_std = delta_std + torch.sum(xim * ([38;5;28mself[39m.delta_coeff.unsqueeze([32m0[39m) * dirs[:, :, [32m1[39m]), dim=[32m1[39m)
+
+[36mFile [39m[32m/tmp/ipykernel_1386209/2006410547.py:61[39m, in [36mLaplaceLinearEstimator.deltadirs[39m[34m(self, theta_ref)[39m
+[32m     59[39m beta = [38;5;28mself[39m.feat.beta
+[32m     60[39m q = [38;5;28mself[39m.omegadirs()
+[32m---> [39m[32m61[39m g = [43mdtangent[49m[43m([49m[43malpha[49m[43m,[49m[43m [49m[43mbeta[49m[43m,[49m[43m [49m[43mtheta_ref[49m[43m)[49m
+[32m     62[39m [38;5;28;01mif[39;00m g.ndim == [32m2[39m:
+[32m     63[39m     proj = g - torch.sum(g * q, dim=[32m1[39m, keepdim=[38;5;28;01mTrue[39;00m) * q
+
+[36mFile [39m[32m/tmp/ipykernel_1386209/1889765217.py:37[39m, in [36mdtangent[39m[34m(alpha, beta, theta_ref)[39m
+[32m     34[39m     theta_ref = theta_ref.unsqueeze([32m0[39m)
+[32m     36[39m theta_ref = theta_ref.to(device=alpha.device, dtype=alpha.dtype)
+[32m---> [39m[32m37[39m g = [43m_delta_tangent_autograd[49m[43m([49m[43malpha[49m[43m,[49m[43m [49m[43mbeta[49m[43m,[49m[43m [49m[43mtheta_ref[49m[43m)[49m
+[32m     38[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m torch.isfinite(g).all():
+[32m     39[39m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([33m"[39m[33mNon-finite tangent values encountered in autograd path.[39m[33m"[39m)
+
+[36mFile [39m[32m/tmp/ipykernel_1386209/1889765217.py:20[39m, in [36m_delta_tangent_autograd[39m[34m(alpha, beta, theta_ref)[39m
+[32m     18[39m [38;5;28;01mfor[39;00m th [38;5;129;01min[39;00m theta_ref:
+[32m     19[39m     th_req = th.detach().clone().requires_grad_([38;5;28;01mTrue[39;00m)
+[32m---> [39m[32m20[39m     mu = [43mmodelhead[49m[43m([49m[43mth_req[49m[43m,[49m[43m [49m[43ms[49m[43m)[49m
+[32m     21[39m     dmu_list = []
+[32m     22[39m     [38;5;28;01mfor[39;00m k [38;5;129;01min[39;00m [38;5;28mrange[39m(mu.numel()):
+
+[36mFile [39m[32m/tmp/ipykernel_1386209/1889765217.py:3[39m, in [36mmodelhead[39m[34m(theta, s, eps)[39m
+[32m      1[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mmodelhead[39m(theta, s, eps=EPS_W):
+[32m      2[39m     [38;5;28;01mif[39;00m [33m"[39m[33mlaplace_transform_torch[39m[33m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m [38;5;28mglobals[39m():
+[32m----> [39m[32m3[39m         [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([33m"[39m[33mDefine laplace_transform_torch(theta, s, eps=...) before running.[39m[33m"[39m)
+[32m      5[39m     theta = theta.to(dtype=TRAIN_DTYPE)
+[32m      6[39m     s = s.to(dtype=torch.complex64)
+
+[31mRuntimeError[39m: Define laplace_transform_torch(theta, s, eps=...) before running.
+

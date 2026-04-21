@@ -1,0 +1,145 @@
+[NbConvertApp] Converting notebook /home/t30/rab/ge48zus/paramest-nn/ParamEst-NN-main/notebooks/3-result.ipynb to notebook
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/__main__.py", line 5, in <module>
+    main()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/traitlets/config/application.py", line 1075, in launch_instance
+    app.start()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+scan_rows = scan_over_lengths_and_points(
+    model=model,
+    theta_points=theta_grid,
+    L_list=L_grid,
+    tau_grid=tau_grid,
+    w_func=w_func,
+    laplace_w=laplace_w,
+    H_test=H_test,
+    device=device,
+)
+
+scan_df = scan_rows_to_frame(scan_rows)
+print("n_rows =", len(scan_rows))
+display(scan_df.head())
+
+------------------
+
+----- stdout -----
+Starting L = 10 with 121 theta points ...
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mRuntimeError[39m                              Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m scan_rows = [43mscan_over_lengths_and_points[49m[43m([49m
+[32m      2[39m [43m    [49m[43mmodel[49m[43m=[49m[43mmodel[49m[43m,[49m
+[32m      3[39m [43m    [49m[43mtheta_points[49m[43m=[49m[43mtheta_grid[49m[43m,[49m
+[32m      4[39m [43m    [49m[43mL_list[49m[43m=[49m[43mL_grid[49m[43m,[49m
+[32m      5[39m [43m    [49m[43mtau_grid[49m[43m=[49m[43mtau_grid[49m[43m,[49m
+[32m      6[39m [43m    [49m[43mw_func[49m[43m=[49m[43mw_func[49m[43m,[49m
+[32m      7[39m [43m    [49m[43mlaplace_w[49m[43m=[49m[43mlaplace_w[49m[43m,[49m
+[32m      8[39m [43m    [49m[43mH_test[49m[43m=[49m[43mH_test[49m[43m,[49m
+[32m      9[39m [43m    [49m[43mdevice[49m[43m=[49m[43mdevice[49m[43m,[49m
+[32m     10[39m [43m)[49m
+[32m     12[39m scan_df = scan_rows_to_frame(scan_rows)
+[32m     13[39m [38;5;28mprint[39m([33m"[39m[33mn_rows =[39m[33m"[39m, [38;5;28mlen[39m(scan_rows))
+
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 74[39m, in [36mscan_over_lengths_and_points[39m[34m(model, theta_points, L_list, tau_grid, w_func, laplace_w, H_test, device)[39m
+[32m     71[39m rows = []
+[32m     72[39m [38;5;28;01mfor[39;00m theta [38;5;129;01min[39;00m theta_points:
+[32m     73[39m     rows.append(
+[32m---> [39m[32m74[39m         [43m_compute_scan_row[49m[43m([49m
+[32m     75[39m [43m            [49m[43mmodel[49m[43m=[49m[43mmodel[49m[43m,[49m
+[32m     76[39m [43m            [49m[43mtheta[49m[43m=[49m[43mtheta[49m[43m,[49m
+[32m     77[39m [43m            [49m[43mL[49m[43m=[49m[43mL[49m[43m,[49m
+[32m     78[39m [43m            [49m[43mtau_grid[49m[43m=[49m[43mtau_grid[49m[43m,[49m
+[32m     79[39m [43m            [49m[43mw_func[49m[43m=[49m[43mw_func[49m[43m,[49m
+[32m     80[39m [43m            [49m[43mlaplace_w[49m[43m=[49m[43mlaplace_w[49m[43m,[49m
+[32m     81[39m [43m            [49m[43mH_test[49m[43m=[49m[43mH_test[49m[43m,[49m
+[32m     82[39m [43m            [49m[43mdevice[49m[43m=[49m[43mdevice[49m[43m,[49m
+[32m     83[39m [43m        [49m[43m)[49m
+[32m     84[39m     )
+[32m     85[39m rows.sort(key=[38;5;28;01mlambda[39;00m row: (row[[33m"[39m[33mdelta[39m[33m"[39m], row[[33m"[39m[33momega[39m[33m"[39m]))
+[32m     86[39m all_rows.extend(rows)
+
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 7[39m, in [36m_compute_scan_row[39m[34m(model, theta, L, tau_grid, w_func, laplace_w, H_test, device)[39m
+[32m      4[39m device = device [38;5;129;01mor[39;00m [38;5;28mnext[39m(model.parameters()).device
+[32m      5[39m theta_t = as_real_tensor(theta, device=device)
+[32m----> [39m[32m7[39m exact_report = [43mlinear_laplace_estimator_report[49m[43m([49m
+[32m      8[39m [43m    [49m[43mmodel[49m[43m=[49m[43mmodel[49m[43m,[49m
+[32m      9[39m [43m    [49m[43mtheta[49m[43m=[49m[43mtheta_t[49m[43m,[49m
+[32m     10[39m [43m    [49m[43mN_obs[49m[43m=[49m[43mL[49m[43m,[49m
+[32m     11[39m [43m    [49m[43mtau_grid[49m[43m=[49m[43mtau_grid[49m[43m,[49m
+[32m     12[39m [43m    [49m[43mw_func[49m[43m=[49m[43mw_func[49m[43m,[49m
+[32m     13[39m [43m    [49m[43mlaplace_w[49m[43m=[49m[43mlaplace_w[49m[43m,[49m
+[32m     14[39m [43m[49m[43m)[49m
+[32m     16[39m eta_func = [38;5;28;01mlambda[39;00m th: estimator_mean_linear_laplace(
+[32m     17[39m     model=model,
+[32m     18[39m     theta=th,
+[32m   (...)[39m[32m     22[39m     laplace_w=laplace_w,
+[32m     23[39m )
+[32m     25[39m bar_report = generalized_barankin_bound(
+[32m     26[39m     theta=theta_t,
+[32m     27[39m     H=H_test,
+[32m   (...)[39m[32m     31[39m     eta_func=eta_func,
+[32m     32[39m )
+
+[36mFile [39m[32m/tmp/ipykernel_2332173/1941660948.py:69[39m, in [36mlinear_laplace_estimator_report[39m[34m(model, theta, N_obs, tau_grid, w_func, laplace_w, eps_w, renorm, jac_eta_func, score_func)[39m
+[32m     67[39m         [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([33m"[39m[33mAutograd J_eta has unexpected shape.[39m[33m"[39m)
+[32m     68[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m torch.isfinite(J_eta).all():
+[32m---> [39m[32m69[39m         [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([33m"[39m[33mAutograd J_eta has non-finite values.[39m[33m"[39m)
+[32m     71[39m I_theta = fisher_information_fixedN(
+[32m     72[39m     theta=theta,
+[32m     73[39m     N_obs=N_obs,
+[32m   (...)[39m[32m     78[39m     score_func=score_func,
+[32m     79[39m )
+[32m     81[39m I_inv = torch.linalg.pinv(I_theta)
+
+[31mRuntimeError[39m: Autograd J_eta has non-finite values.
+

@@ -1,0 +1,3 @@
+[NbConvertApp] Converting notebook /home/t30/rab/ge48zus/paramest-nn/ParamEst-NN-main/train_notebooks/result-noniid.ipynb to notebook
+/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)

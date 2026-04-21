@@ -1,0 +1,76 @@
+Job started on pauli4.t30.ph.tum.de
+Project root: /home/t30/rab/ge48zus/paramest-nn/ParamEst-NN-main
+Python: /space-nobackup/ge48zus/venvs/paramestnn/bin/python
+SLURM_CPUS_PER_TASK: 16
+output_root = data/nonrenewal/tragectories
+models = ['shelving', 'lambda', 'v', 'ladder']
+n_trajectories = 1,000,000, length = 50, n_param_points = 2048
+[shelving] param_points=128/2048 rows=62498/1000000 rate=22,465 traj/s area_min=0.999995
+[shelving] param_points=256/2048 rows=125001/1000000 rate=22,641 traj/s area_min=0.999946
+[shelving] param_points=384/2048 rows=187507/1000000 rate=22,737 traj/s area_min=0.999946
+[shelving] param_points=512/2048 rows=250001/1000000 rate=22,796 traj/s area_min=0.999946
+[shelving] param_points=640/2048 rows=312503/1000000 rate=22,808 traj/s area_min=0.999946
+[shelving] param_points=768/2048 rows=375003/1000000 rate=22,818 traj/s area_min=0.999929
+[shelving] param_points=896/2048 rows=437495/1000000 rate=22,828 traj/s area_min=0.999929
+[shelving] param_points=1024/2048 rows=499994/1000000 rate=22,835 traj/s area_min=0.999929
+[shelving] param_points=1152/2048 rows=562493/1000000 rate=23,974 traj/s area_min=0.999929
+[shelving] param_points=1280/2048 rows=624999/1000000 rate=24,969 traj/s area_min=0.999929
+[shelving] param_points=1408/2048 rows=687502/1000000 rate=25,858 traj/s area_min=0.999929
+[shelving] param_points=1536/2048 rows=750003/1000000 rate=26,641 traj/s area_min=0.999929
+[shelving] param_points=1664/2048 rows=812499/1000000 rate=27,335 traj/s area_min=0.999929
+[shelving] param_points=1792/2048 rows=875002/1000000 rate=27,878 traj/s area_min=0.999929
+[shelving] param_points=1920/2048 rows=937501/1000000 rate=28,461 traj/s area_min=0.999929
+[shelving] param_points=2048/2048 rows=1000000/1000000 rate=28,976 traj/s area_min=0.999929
+[shelving] done -> data/nonrenewal/tragectories/shelving
+[lambda] param_points=128/2048 rows=62492/1000000 rate=40,210 traj/s area_min=0.999951
+[lambda] param_points=256/2048 rows=124995/1000000 rate=40,179 traj/s area_min=0.999944
+[lambda] param_points=384/2048 rows=187496/1000000 rate=40,328 traj/s area_min=0.999944
+[lambda] param_points=512/2048 rows=249997/1000000 rate=40,267 traj/s area_min=0.999928
+[lambda] param_points=640/2048 rows=312492/1000000 rate=40,182 traj/s area_min=0.999926
+[lambda] param_points=768/2048 rows=374993/1000000 rate=40,219 traj/s area_min=0.999926
+[lambda] param_points=896/2048 rows=437498/1000000 rate=40,189 traj/s area_min=0.999926
+[lambda] param_points=1024/2048 rows=499997/1000000 rate=40,223 traj/s area_min=0.999913
+[lambda] param_points=1152/2048 rows=562507/1000000 rate=40,226 traj/s area_min=0.999913
+[lambda] param_points=1280/2048 rows=625005/1000000 rate=40,240 traj/s area_min=0.999913
+[lambda] param_points=1408/2048 rows=687497/1000000 rate=40,273 traj/s area_min=0.999913
+[lambda] param_points=1536/2048 rows=750000/1000000 rate=40,273 traj/s area_min=0.999913
+[lambda] param_points=1664/2048 rows=812500/1000000 rate=40,250 traj/s area_min=0.999913
+[lambda] param_points=1792/2048 rows=875009/1000000 rate=40,264 traj/s area_min=0.999913
+[lambda] param_points=1920/2048 rows=937505/1000000 rate=40,240 traj/s area_min=0.999910
+[lambda] param_points=2048/2048 rows=1000000/1000000 rate=40,236 traj/s area_min=0.999910
+[lambda] done -> data/nonrenewal/tragectories/lambda
+[v] param_points=128/2048 rows=62501/1000000 rate=43,510 traj/s area_min=0.999910
+[v] param_points=256/2048 rows=124996/1000000 rate=43,672 traj/s area_min=0.999910
+[v] param_points=384/2048 rows=187503/1000000 rate=43,929 traj/s area_min=0.999910
+[v] param_points=512/2048 rows=250001/1000000 rate=44,095 traj/s area_min=0.999910
+[v] param_points=640/2048 rows=312505/1000000 rate=44,238 traj/s area_min=0.999910
+[v] param_points=768/2048 rows=375006/1000000 rate=44,264 traj/s area_min=0.999910
+[v] param_points=896/2048 rows=437503/1000000 rate=44,300 traj/s area_min=0.999910
+[v] param_points=1024/2048 rows=500013/1000000 rate=44,275 traj/s area_min=0.999910
+[v] param_points=1152/2048 rows=562514/1000000 rate=44,322 traj/s area_min=0.999910
+[v] param_points=1280/2048 rows=625021/1000000 rate=44,327 traj/s area_min=0.999910
+[v] param_points=1408/2048 rows=687523/1000000 rate=44,401 traj/s area_min=0.999910
+[v] param_points=1536/2048 rows=750019/1000000 rate=44,444 traj/s area_min=0.999910
+[v] param_points=1664/2048 rows=812513/1000000 rate=44,455 traj/s area_min=0.999910
+[v] param_points=1792/2048 rows=875009/1000000 rate=44,411 traj/s area_min=0.999910
+[v] param_points=1920/2048 rows=937509/1000000 rate=44,424 traj/s area_min=0.999910
+[v] param_points=2048/2048 rows=1000000/1000000 rate=44,433 traj/s area_min=0.999910
+[v] done -> data/nonrenewal/tragectories/v
+[ladder] param_points=128/2048 rows=62508/1000000 rate=44,059 traj/s area_min=0.999915
+[ladder] param_points=256/2048 rows=124999/1000000 rate=44,134 traj/s area_min=0.999910
+[ladder] param_points=384/2048 rows=187495/1000000 rate=44,075 traj/s area_min=0.999909
+[ladder] param_points=512/2048 rows=249996/1000000 rate=44,035 traj/s area_min=0.999909
+[ladder] param_points=640/2048 rows=312500/1000000 rate=44,102 traj/s area_min=0.999909
+[ladder] param_points=768/2048 rows=375003/1000000 rate=44,119 traj/s area_min=0.999909
+[ladder] param_points=896/2048 rows=437496/1000000 rate=44,084 traj/s area_min=0.999909
+[ladder] param_points=1024/2048 rows=499997/1000000 rate=44,091 traj/s area_min=0.999909
+[ladder] param_points=1152/2048 rows=562497/1000000 rate=44,048 traj/s area_min=0.999906
+[ladder] param_points=1280/2048 rows=624995/1000000 rate=44,017 traj/s area_min=0.999906
+[ladder] param_points=1408/2048 rows=687494/1000000 rate=44,008 traj/s area_min=0.999906
+[ladder] param_points=1536/2048 rows=749990/1000000 rate=44,039 traj/s area_min=0.999906
+[ladder] param_points=1664/2048 rows=812488/1000000 rate=44,065 traj/s area_min=0.999906
+[ladder] param_points=1792/2048 rows=874992/1000000 rate=44,069 traj/s area_min=0.999906
+[ladder] param_points=1920/2048 rows=937495/1000000 rate=44,084 traj/s area_min=0.999906
+[ladder] param_points=2048/2048 rows=1000000/1000000 rate=44,079 traj/s area_min=0.999906
+[ladder] done -> data/nonrenewal/tragectories/ladder
+three-level noniid trajectory generation finished.

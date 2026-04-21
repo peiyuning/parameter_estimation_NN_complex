@@ -1,0 +1,93 @@
+[NbConvertApp] Converting notebook /home/t30/rab/ge48zus/paramest-nn/ParamEst-NN-main/notebooks/3-result.ipynb to notebook
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/__main__.py", line 5, in <module>
+    main()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/traitlets/config/application.py", line 1075, in launch_instance
+    app.start()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/space-nobackup/ge48zus/venvs/paramestnn/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+scan_rows = scan_over_lengths_and_points(
+    model=model,
+    theta_points=theta_grid,
+    L_list=L_grid,
+    tau_grid=tau_grid,
+    w_func=w_func,
+    fd_eps=fd_eps,
+    laplace_w=laplace_w,
+    H_test=H_test,
+    device=device,
+)
+
+scan_df = scan_rows_to_frame(scan_rows)
+print("n_rows =", len(scan_rows))
+display(scan_df.head())
+
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 7[39m
+[32m      1[39m scan_rows = scan_over_lengths_and_points(
+[32m      2[39m     model=model,
+[32m      3[39m     theta_points=theta_grid,
+[32m      4[39m     L_list=L_grid,
+[32m      5[39m     tau_grid=tau_grid,
+[32m      6[39m     w_func=w_func,
+[32m----> [39m[32m7[39m     fd_eps=[43mfd_eps[49m,
+[32m      8[39m     laplace_w=laplace_w,
+[32m      9[39m     H_test=H_test,
+[32m     10[39m     device=device,
+[32m     11[39m )
+[32m     13[39m scan_df = scan_rows_to_frame(scan_rows)
+[32m     14[39m [38;5;28mprint[39m([33m"[39m[33mn_rows =[39m[33m"[39m, [38;5;28mlen[39m(scan_rows))
+
+[31mNameError[39m: name 'fd_eps' is not defined
+
